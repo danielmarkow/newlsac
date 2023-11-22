@@ -37,6 +37,7 @@
 		"@auth/core": "^0.18.3",
 		"@auth/sveltekit": "^0.3.14",
 		"@tailwindcss/forms": "^0.5.7",
+		"@vercel/analytics": "^1.1.1",
 		"dotenv": "^16.3.1",
 		"drizzle-orm": "^0.29.0",
 		"drizzle-zod": "^0.5.1",
