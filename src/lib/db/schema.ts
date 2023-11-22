@@ -16,5 +16,10 @@ export const links = pgTable(
 	})
 );
 
-export const insertLinkSchema = createInsertSchema(links);
+export const insertLinkSchema = createInsertSchema(links).omit({
+	id: true,
+	userEmail: true,
+	updatedAt: true,
+	createdAt: true
+});
 export const selectLinkSchema = createSelectSchema(links);
