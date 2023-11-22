@@ -22,9 +22,13 @@
 	>
 </form>
 <div>
-	<ul>
-		{#each data.userLinks as link}
-			<li>{link.linkUrl}, {link.comment}</li>
-		{/each}
-	</ul>
+	{#if data.userLinks.length === 0}
+		<p>no links yet</p>
+	{:else}
+		<ul>
+			{#each data.userLinks as link}
+				<li>{link.linkUrl}, {link.comment}</li>
+			{/each}
+		</ul>
+	{/if}
 </div>
