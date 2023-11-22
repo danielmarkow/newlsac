@@ -5,13 +5,14 @@ export const links = pgTable(
 	'links',
 	{
 		id: varchar('offer_id', { length: 21 }).primaryKey(),
-		userId: varchar('user_id', { length: 256 }).notNull(),
+		userEmail: varchar('user_id', { length: 320 }).notNull(),
+		linkUrl: text('link_url').notNull(),
 		comment: text('comment'),
 		createdAt: timestamp('created_at').defaultNow().notNull(),
 		updatedAt: timestamp('updatedAt').notNull()
 	},
 	(links) => ({
-		userIdIndex: index('user_id_idx').on(links.userId)
+		userEmailIndex: index('user_email_idx').on(links.userEmail)
 	})
 );
 
