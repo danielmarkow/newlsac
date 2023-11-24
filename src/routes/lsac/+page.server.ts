@@ -3,7 +3,7 @@ import { fail } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { db } from '$lib/db/db';
 import { nanoid } from 'nanoid';
-import { eq } from 'drizzle-orm';
+import { desc, eq } from 'drizzle-orm';
 
 export const load = (async ({ locals }) => {
 	const userSession = await locals.getSession();
@@ -13,7 +13,9 @@ export const load = (async ({ locals }) => {
 	const userLinks = await db
 		.select()
 		.from(links)
-		.where(eq(links.userEmail, userSession.user.email));
+		.where(eq(links.userEmail, userSession.user.email))
+		.orderBy(desc(links.createdAt));
+
 	return { userLinks };
 }) satisfies PageServerLoad;
 

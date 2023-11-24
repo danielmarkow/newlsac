@@ -9,16 +9,23 @@
 <form method="POST" action="?/createlink" use:enhance>
 	<div>
 		<label for="linkUrl" class="block"> url </label>
-		<input type="url" id="linkUrl" name="linkUrl" required class="border border-gray-200 p-1" />
+		<input
+			type="url"
+			id="linkUrl"
+			name="linkUrl"
+			required
+			class="w-full border border-gray-200 p-1"
+		/>
 	</div>
 	<div>
 		<label for="comment" class="block"> comment </label>
-		<textarea id="comment" name="comment" class="border border-gray-200 p-1" />
+		<textarea id="comment" name="comment" class="w-full border border-gray-200 p-1" />
 	</div>
+
 	<button
 		type="submit"
 		formaction="?/createlink"
-		class="border border-gray-200 py-1 px-2 hover:bg-gray-200">save</button
+		class="border border-gray-200 py-1 px-7 hover:bg-gray-200">save</button
 	>
 </form>
 <div>
@@ -27,7 +34,10 @@
 	{:else}
 		<ul>
 			{#each data.userLinks as link}
-				<li>{link.linkUrl}, {link.comment}</li>
+				<li>
+					<span class="block">{link.comment}</span>
+					<a href={link.linkUrl} class="text-sm text-gray-600">{link.linkUrl}</a>
+				</li>
 			{/each}
 		</ul>
 	{/if}
